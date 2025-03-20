@@ -1,14 +1,16 @@
 @extends('layouts.applogin')
+ @section('content')
+ <div class="bg-[url('{{ asset('login.webp') }}')] h-screen w-screen bg-cover items-center flex justify-center">
+  
 
-@section('content')
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+<div class="login-box bg-amber-100 rounded-r-full bg-opacity-70  ">
+  <div class="login-logo bg-amber-200 rounded-bl-full bg-opacity-70">
+    <a href="../../index2.html"><b>Recupera </b>tú <b> cuenta</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
+    <div class="card-body login-card-body bg-amber-200 bg-opacity-50">
+      <p class="login-box-msg ">Olvidaste tu contraseña? tranquilo aca puedes recuperarla</p>
               @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -47,5 +49,6 @@
     </div>
     <!-- /.login-card-body -->
   </div>
+</div>
 </div>
 @endsection
