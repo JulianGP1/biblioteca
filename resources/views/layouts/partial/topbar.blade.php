@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand bg-amber-100 navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -7,17 +7,20 @@
         </li>
     </ul>
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-[80%]">
         <li class="nav-item">
-            <a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <a id="navbarDropdown" class="nav-link text-[20px] uppercase" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
             </a>
         </li>
-        <li class="nav-item">
-            <a class="dropdown-item" href="{{ route('logout') }}"
+        <li class="nav-item content-center pl-4">
+             
+            <a class="dropdown-item content-center" href="{{ route('logout') }}"
+            
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i>
+                Salir
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf

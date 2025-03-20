@@ -1,6 +1,6 @@
 @extends('layouts.applogin')
 <script src="https://cdn.tailwindcss.com"></script>
-
+<link rel="icon" type="image/webp" href="{{ asset('logo.webp') }}">
 @section('content')
 <body class="h-screen bg-cover bg-center bg-no-repeat flex justify-center items-center" style="background-image: url('{{ asset('login.webp') }}');">
 

@@ -1,9 +1,9 @@
 @extends('layouts.applogin')
         <script src="https://cdn.tailwindcss.com"></script>
-
+        <link rel="icon" type="image/webp" href="{{ asset('logo.webp') }}">
 @section('content')
 <body  style="background-image: url('{{ asset('librery.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <div class="bg-amber-200 h-[80%] bg-opacity-10 shadow-2xl rounded-2xl  w-[600px] max-w-lg backdrop-blur-md flex flex-col items-center">
+    <div class="bg-amber-200 h-[90%]  bg-opacity-10 shadow-2xl rounded-2xl  w-[600px] max-w-lg backdrop-blur-md flex flex-col items-center">
       <div class="text-center bg-amber-200 bg-opacity-30  p-3 mt-2 h-[20%] w-[70%] rounded-lg ">
         <h2 class="text-3xl; font-extrabold; text-[25px] ;text-gray-700; select-none">Registro</h2>
         <p class="text-gray-600">Crea tu cuenta en unos simples pasos</p>
