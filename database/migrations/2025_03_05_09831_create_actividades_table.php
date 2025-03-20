@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('autores', function (Blueprint $table) {
+        Schema::create('actividades', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->text('bibliografia');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('nombreacti');
+            $table->text('descripcion');
+            $table->date('fecha_inicio');
+            $table->date('fecha_final');
+            $table->string('lugar');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('autores');
+        Schema::dropIfExists('actividades');
     }
 };

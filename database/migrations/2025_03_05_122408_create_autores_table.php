@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('actividades', function (Blueprint $table) {
+        Schema::create('autores', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreActi');
-            $table->text('descripcion');
-            $table->dateTime('fecha-inicio');
-            $table->dateTime('fecha-final');
-            $table->string('lugar');
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->text('bibliografia')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('actividades');
+        Schema::dropIfExists('autores');
     }
 };

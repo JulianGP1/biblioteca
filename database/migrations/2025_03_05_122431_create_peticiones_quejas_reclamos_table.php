@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorias', function (Blueprint $table) {
+        Schema::create('peticiones_quejas_reclamos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('categorias_id');
-            $table->string('nombre');
-            $table->text('categorias');
             $table->text('descripcion');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->unsignedBigInteger('persona_id');
             $table->timestamps();
-            $table->foreign('categorias_id')->references("id")->on('categorias');
+
+            $table->foreign('persona_id')->references('id')->on('personas');
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('peticiones_quejas_reclamos');
     }
 };

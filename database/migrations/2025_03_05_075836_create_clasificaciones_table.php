@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('libro', function (Blueprint $table) {
+        Schema::create('clasificaciones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('categorias_id');
-            $table->string('titulo');
-            $table->string('isbn');
-            $table->text('anio');
-            $table->text('estante');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->string('estado');
             $table->string('registradoPor');
-            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
-            $table->foreign('categorias_id')->references("id")->on('categorias');
         });
     }
 
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('libro');
+        Schema::dropIfExists('clasificaciones');
     }
 };

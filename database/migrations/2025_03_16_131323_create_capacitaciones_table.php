@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::creatye('libro_editorials', function (Blueprint $table) {
+        Schema::create('capacitaciones', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
+            $table->text('descripcion');
+            $table->date('fecha');
+            $table->time('hora');
+            $table->unsignedBigInteger('persona_id');
             $table->timestamps();
+
+            $table->foreign('persona_id')->references('id')->on('personas');
         });
     }
 
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('libro_editorials');
+        Schema::dropIfExists('capacitaciones');
     }
 };

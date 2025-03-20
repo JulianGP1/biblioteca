@@ -2,23 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class clasificacion extends Model
+class Clasificacion extends Model
 {
     use HasFactory;
 
-    protected $table = 'clasificacion';  
-    protected $primaryKey = 'id';  
-    protected $fillable = [  
-        'nombre',
-        'precio',
-        'descripcion',
-        'estado'
-    ];
-    public function clasificacion(){
-        return $this->belongTo (clasificacion::class);
+    protected $table = 'clasificaciones';
+    protected $primaryKey = 'id';
 
+    protected $fillable = [
+    'nombre',
+    'descripcion',
+    'estado',
+    'registradoPor',
+    ];
+
+    public function materiales()
+    {
+      return $this ->hasMany(Material::class, 'clasificacion_id');
     }
+   
 }

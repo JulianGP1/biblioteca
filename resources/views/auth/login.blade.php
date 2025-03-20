@@ -1,71 +1,54 @@
 @extends('layouts.applogin')
+<script src="https://cdn.tailwindcss.com"></script>
 
 @section('content')
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your ssssession</p>
+<body class="h-screen bg-cover bg-center bg-no-repeat flex justify-center items-center" style="background-image: url('{{ asset('login.webp') }}');">
 
-      <form method="POST" action="{{ route('login') }}">
+  <div class="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-md shadow-xl rounded-lg p-6">
+    
+    <!-- Título -->
+    <div class="text-center mb-4">
+      <h2 class="text-2xl font-bold text-gray-800">Inicio de Sesión</h2>
+      <p class="text-gray-600">Inicia sesión para ingresar</p>
+    </div>
+
+    <!-- Formulario -->
+    <form method="POST" action="{{ route('login') }}">
       @csrf
 
-        <div class="input-group mb-3">
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+      <!-- Correo Electrónico -->
+      <div class="mb-4">
+        <input id="email" type="email" name="email" placeholder="Correo Electrónico" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring focus:ring-gray-400 shadow-sm @error('email') border-red-500 @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
         @error('email')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+          <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
+      </div>
 
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+      <!-- Contraseña -->
+      <div class="mb-4">
+        <input id="password" type="password" name="password" placeholder="Contraseña" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring focus:ring-gray-400 shadow-sm @error('password') border-red-500 @enderror" required autocomplete="current-password">
         @error('password')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+          <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
+      </div>
 
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+      <!-- Botón de inicio -->
+      <div class="flex justify-center mt-6">
+        <button type="submit" class="bg-black hover:bg-blue-400 text-white font-semibold hover:scale-x-110 py-3 px-8 rounded-lg transition shadow-lg">INICIAR</button>
+      </div>
 
-
-      <p class="mb-1">
+      <!-- Recuperar contraseña -->
+      <div class="text-center mt-4">
         @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+          <a class="text-gray-700 hover:underline" href="{{ route('password.request') }}">
+            ¿Olvidaste tu contraseña?
+          </a>
+        @endif
+      </div>
 
-      </p>
-    </div>
-    <!-- /.login-card-body -->
+    </form>
+
   </div>
-</div>
-<!-- /.login-box -->
+
+</body>
 @endsection
